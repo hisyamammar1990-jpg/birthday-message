@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    min-height:100vh;
+    font-family:Arial,sans-serif;
+    overflow-x:hidden;
+    text-align:center;
+}
+
+#giftBox{
+    margin-top:35vh;
+}
+
+#giftBtn{
+    font-size:80px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+#giftBtn:hover{
+    transform:scale(1.1);
+}
+
+#content{
+    display:none;
+    animation:fadeIn 2s;
+    padding:30px;
+}
+
+h1{
+    color:white;
+    margin-bottom:20px;
+}
+
+.photo{
+    width:250px;
+    height:250px;
+    object-fit:cover;
+    border-radius:20px;
+    margin:10px;
+    box-shadow:0 0 20px rgba(0,0,0,0.2);
+}
+
+.letter{
+    background:white;
+    max-width:700px;
+    margin:30px auto;
+    padding:25px;
+    border-radius:20px;
+    line-height:1.8;
+    font-size:18px;
+}
+
+.heart{
+    position:fixed;
+    top:-20px;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh);
+    }
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+</style>
+</head>
+<body>
+
+<audio id="music" loop>
+    <source src="lagu.mp3" type="audio/mpeg">
+</audio>
+
+<div id="giftBox">
+    <button id="giftBtn" onclick="openGift()">🎁</button>
+    <h2>Buka Hadiahmu ❤️</h2>
+</div>
+
+<div id="content">
+
+<h1>🎂 Happy Birthday Sayang ❤️</h1>
+
+<img src="foto.jpg" class="photo">
+<img src="foto2.jpg" class="photo">
+
+<div class="letter">
+    <p>
+    Selamat ulang tahun ya sayanggg ❤️<br><br>
+
+    Terima kasih sudah hadir di hidup aku dan menjadi salah satu alasan aku tersenyum setiap hari ✨<br><br>
+
+    Semoga di umur yang baru ini kamu selalu sehat, bahagia, dan semua impian yang kamu perjuangkan bisa tercapai 🌷<br><br>
+
+    Aku bangga punya kamu dan bersyukur bisa mengenal kamu sampai hari ini ❤️<br><br>
+
+    Semoga hari spesial ini membawa banyak kebahagiaan dan kenangan indah untuk kamu 🎂✨<br><br>
+
+    I LOVE YOU SO MUCH ❤️🥰
+    </p>
+</div>
+
+</div>
+
+<script>
+
+function openGift(){
+
+    document.getElementById("giftBox").style.display="none";
+
+    document.getElementById("content").style.display="block";
+
+    document.getElementById("music").play();
+
+    createHearts();
+}
+
+function createHearts(){
+
+    setInterval(()=>{
+
+        const heart=document.createElement("div");
+
+        heart.className="heart";
+
+        heart.innerHTML="❤️";
+
+        heart.style.left=Math.random()*100+"vw";
+
+        heart.style.fontSize=(Math.random()*20+20)+"px";
+
+        heart.style.animationDuration=(Math.random()*3+3)+"s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{
+            heart.remove();
+        },6000);
+
+    },250);
+}
+
+</script>
+
+</body>
+</html>
